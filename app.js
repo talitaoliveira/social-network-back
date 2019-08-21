@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
-require('./src/routes')(app);
+// require('./src/routes')(app);
 
 const port = 3000;
+
+// Routes
+const projectsRoutes = require('./src/routes/projects');
+app.use('/projects', projectsRoutes());
 
 app.get('/', function (req, res) {
     res.send('hello world')
 });
 
+// Run app
 app.listen(port);
+console.log('Listen on port 3000');
+
+
+module.exports = app; // for testing
