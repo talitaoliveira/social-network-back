@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-// require('./src/routes')(app);
 
 const port = 3000;
 
