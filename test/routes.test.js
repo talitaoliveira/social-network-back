@@ -19,5 +19,17 @@ describe('Routes', () => {
                 done();
             });
         });
+
+        it('Returns  "Hello, Projects!" message from /projects', (done) =>{
+            chai.request(app)
+            .get('/projects')
+            .end((error, response) => {
+                if(error) done(error);
+                expect(response.body).to.be.deep.equal({
+                    message: 'Hello, Projects!'
+                })
+                done();
+            });
+        });
     });
 });
