@@ -10,29 +10,12 @@ describe('First Test', () => {
     }); 
 });
 
-describe('Test routes', () => {
-
-    it('Should connect to /', (done) => {
-        chai.request(app)
-        .get('/')
-        .end((err, res) => {
-            expect(err).to.be.null;
-            expect(res).to.have.status(200);
-            done();
-        });
-    });
-
-    describe('ROUTES: projects', () => {
-
-        it('Should GET /projects', (done) => {
-            chai.request(app)
-            .get('/projects')
-            .end((err, res) => {
-                expect(err).to.be.null;
-                expect(res).to.have.status(200);
-                done();
-            });
-        });
-
+describe('Hello World Route', (done) => {
+    chai.request(app)
+    .get('/')
+    .end((error, response) => {
+        if(error) done();
+        expect(response).to.have.status(200);
+        done();
     });
 });
