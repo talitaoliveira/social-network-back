@@ -32,4 +32,17 @@ describe('Routes', () => {
             });
         });
     });
+
+    describe('User Routes', () => {
+        it('Returns 200 response for /users', (done) => {
+            chai.request(app)
+            .get('/users')
+            .end((error, response) => {
+                if(error) done(error);
+                expect(response).to.have.status(200);
+                done();
+            });
+        });
+
+    });
 });
