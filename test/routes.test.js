@@ -31,6 +31,21 @@ describe('Routes', () => {
                 done();
             });
         });
+
+        it('Should call function .projects_list from ProjectController', (done) =>{
+            chai.request(app)
+            .get('/projects')
+            .end((error, response) => {
+                if(error) done(error);
+                // given
+
+                //when
+
+                //then
+
+                done();
+            });
+        });
     });
 
     describe('User Routes', () => {
