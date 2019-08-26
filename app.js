@@ -7,9 +7,9 @@ app.get('/', (req, res) => {
     res.send({ message: 'Hello, world!' })
 });
 
-app.get('/projects', (req, res) => {
-    res.send({ message: 'Hello, Projects!' })
-});
+// Mapping routes
+const projectRoutes = require('./src/routes/projects');
+app.use('/projects', projectRoutes());
 
 // Run app
 app.listen(port);
