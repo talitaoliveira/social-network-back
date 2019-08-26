@@ -1,9 +1,10 @@
 const express = require('express');
+const projectController = require('../controller/project.controller')
 
 const projectsRoutes = () => {
     const router = express.Router();
     router.get('/', (req, res, next) => {
-        res.send({ message: 'Hello, Projects!' });
+        projectController.listProjects(req, res);
     });
 
     return router;
