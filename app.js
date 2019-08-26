@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
     res.send({ message: 'Hello, world!' })
 });
 
+app.get('/projects', (req, res) => {
+    res.send({ message: 'Hello, Projects!' })
+});
+
 // Run app
 app.listen(port);
 console.log('Listen on port 3000');
