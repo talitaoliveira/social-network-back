@@ -9,7 +9,9 @@ app.get('/', (req, res) => {
 
 // Mapping routes
 const projectRoutes = require('./src/routes/projects');
+const userRoutes = require('./src/routes/users');
 app.use('/projects', projectRoutes());
+app.use('/users', userRoutes());
 
 // Run app
 app.listen(port);
