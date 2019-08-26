@@ -44,5 +44,16 @@ describe('Routes', () => {
             });
         });
 
+        it('Returns  "Hello, Users!" message from /users', (done) =>{
+            chai.request(app)
+            .get('/users')
+            .end((error, response) => {
+                if(error) done(error);
+                expect(response.body).to.be.deep.equal({
+                    message: 'Hello, Users!'
+                })
+                done();
+            });
+        });
     });
 });
