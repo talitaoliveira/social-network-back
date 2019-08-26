@@ -33,17 +33,14 @@ describe('Routes', () => {
             });
         });
 
-        it('Should call function .projects_list from ProjectController', (done) =>{
+        it('Should call function .listProjects from ProjectController', (done) =>{
             chai.request(app)
             .get('/projects')
             .end((error, response) => {
                 if(error) done(error);
-                // given
-                
-                //when
-
-                //then
-
+                const projectController = require('../src/controller/project.controller')
+                const projectList = sinon.mock(projectController);
+                projectList.expects("listProjects").once();
                 done();
             });
         });
