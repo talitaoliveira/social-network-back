@@ -2,6 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const expect = require('chai').expect;
+const sinon = require('sinon');
 const app = require('../app');
 
 describe('Routes', () => {
@@ -38,7 +39,7 @@ describe('Routes', () => {
             .end((error, response) => {
                 if(error) done(error);
                 // given
-
+                
                 //when
 
                 //then
