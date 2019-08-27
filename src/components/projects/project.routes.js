@@ -1,7 +1,7 @@
 const express = require('express');
-const projectController = require('../components/projects/project.controller')
+const projectController = require('./project.controller')
 
-const projectsRoutes = () => {
+const projectsRoutes = (app) => {
     const router = express.Router();
     router.get('/', (req, res, next) => {
         projectController.listProjects(req, res);

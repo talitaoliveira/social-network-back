@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 });
 
 // Mapping routes
-const projectRoutes = require('./src/routes/projects');
+const projectRoutes = require('./src/components/projects/project.routes');
 const userRoutes = require('./src/routes/users');
 app.use('/projects', projectRoutes());
 app.use('/users', userRoutes());
