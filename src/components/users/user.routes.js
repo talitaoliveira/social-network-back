@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('./user.controller')
 
 const usersRoutes = () => {
     router.get('/', (req, res, next) => {
-        res.send({ message: 'Hello, Users!' })
+        userController.listUsers(req, res);
     });
 
     return router;

@@ -71,5 +71,19 @@ describe('Routes', () => {
                 done();
             });
         });
+
+        it('Should call function listUsers() from UserController', (done) =>{
+            const userController = require('../src/components/users/user.controller')
+            const userList = sinon.spy(userController, 'listUsers');
+
+            chai.request(app)
+            .get('/api/users')
+            .end((error, response) => {
+                if(error) done(error);
+                assert(userList.called, 'Function userList not called')
+                userList.restore();
+                done();
+            });
+        });
     });
 });
