@@ -34,7 +34,7 @@ describe('Routes', () => {
             });
         });
 
-        it('Should call function .listProjects from ProjectController', (done) =>{
+        it('Should call function listProjects() from ProjectController', (done) =>{
             const projectController = require('../src/components/projects/project.controller')
             const projectList = sinon.spy(projectController, 'listProjects');
 
