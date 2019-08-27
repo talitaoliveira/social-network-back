@@ -13,7 +13,7 @@ describe('Routes', () => {
     describe('Project Routes', () =>{
         it('Returns 200 response for /projects', (done) =>{
             chai.request(app)
-            .get('/projects')
+            .get('/api/projects')
             .end((error, response) => {
                 if(error) done(error);
                 expect(response).to.have.status(200);
@@ -23,7 +23,7 @@ describe('Routes', () => {
 
         it('Returns  "Hello, Projects!" message from /projects', (done) =>{
             chai.request(app)
-            .get('/projects')
+            .get('/api/projects')
             .end((error, response) => {
                 if(error) done(error);
                 expect(response.body).to.be.deep.equal({
@@ -35,7 +35,7 @@ describe('Routes', () => {
 
         it('Should call function .listProjects from ProjectController', (done) =>{
             chai.request(app)
-            .get('/projects')
+            .get('/api/projects')
             .end((error, response) => {
                 if(error) done(error);
                 const projectController = require('../src/components/projects/project.controller')
@@ -49,7 +49,7 @@ describe('Routes', () => {
     describe('User Routes', () => {
         it('Returns 200 response for /users', (done) => {
             chai.request(app)
-            .get('/users')
+            .get('/api/users')
             .end((error, response) => {
                 if(error) done(error);
                 expect(response).to.have.status(200);
@@ -59,7 +59,7 @@ describe('Routes', () => {
 
         it('Returns  "Hello, Users!" message from /users', (done) =>{
             chai.request(app)
-            .get('/users')
+            .get('/api/users')
             .end((error, response) => {
                 if(error) done(error);
                 expect(response.body).to.be.deep.equal({
