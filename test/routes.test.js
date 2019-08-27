@@ -1,4 +1,5 @@
 const chai = require('chai');
+const assert = chai.assert;
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const expect = require('chai').expect;
@@ -34,13 +35,15 @@ describe('Routes', () => {
         });
 
         it('Should call function .listProjects from ProjectController', (done) =>{
+            const projectController = require('../src/components/projects/project.controller')
+            const projectList = sinon.spy(projectController, 'listProjects');
+
             chai.request(app)
             .get('/api/projects')
             .end((error, response) => {
                 if(error) done(error);
-                const projectController = require('../src/components/projects/project.controller')
-                const projectList = sinon.mock(projectController);
-                projectList.expects("listProjects").once();
+                assert(projectList.called, 'Function listProjects not called')
+                projectList.restore();
                 done();
             });
         });
