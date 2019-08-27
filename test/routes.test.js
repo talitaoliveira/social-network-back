@@ -38,7 +38,7 @@ describe('Routes', () => {
             .get('/projects')
             .end((error, response) => {
                 if(error) done(error);
-                const projectController = require('../src/controller/project.controller')
+                const projectController = require('../src/components/projects/project.controller')
                 const projectList = sinon.mock(projectController);
                 projectList.expects("listProjects").once();
                 done();
